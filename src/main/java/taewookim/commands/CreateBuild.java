@@ -173,6 +173,7 @@ public class CreateBuild implements CommandExecutor, TabCompleter {
                                 commandSender.sendMessage("선택한 구조물이 없습니다.");
                             }
                         }
+                        break;
                     case "spawn":
                         if(commandSender instanceof Player p) {
                             if(MovingBuilding.buildinglist.get(strings[1])!=null) {
@@ -199,9 +200,9 @@ public class CreateBuild implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
         switch(strings.length) {
-            case 0:
-                return Arrays.asList("create", "remove", "spawn", "edit");
             case 1:
+                return Arrays.asList("create", "remove", "spawn", "edit");
+            case 2:
                 switch(strings[0]) {
                     case "remove":
                     case "spawn":
@@ -216,7 +217,7 @@ public class CreateBuild implements CommandExecutor, TabCompleter {
                         return Arrays.asList("<Name>");
                 }
                 break;
-            case 2:
+            case 3:
                 if(strings[0].equalsIgnoreCase("edit")) {
                     return Arrays.asList("<숫자>");
                 }

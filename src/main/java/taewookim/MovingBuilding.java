@@ -49,7 +49,7 @@ public class MovingBuilding extends JavaPlugin {
         CreateBuild cb = new CreateBuild();
         Bukkit.getPluginCommand("createbuild").setExecutor(cb);
         Bukkit.getPluginCommand("createbuild").setTabCompleter(cb);
-        Update();
+        //Update();
     }
 
     public void onDisable() {

@@ -18,7 +18,7 @@ public class Events implements Listener {
         Player p = e.getPlayer();
         if(p.getItemInHand()!=null&&e.getPlayer().isOp()) {
             ItemStack i = p.getItemInHand();
-            if(i.hasItemMeta()&&i.getType().equals(Material.WOODEN_AXE)) {
+            if(i.getType().equals(Material.WOODEN_AXE)) {
                 if(action.equals(Action.RIGHT_CLICK_BLOCK)) {
                     MovingBuilding.target2.put(e.getPlayer(), e.getClickedBlock());
                     p.sendMessage("타겟2 지정완료");

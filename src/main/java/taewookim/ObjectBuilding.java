@@ -3,6 +3,7 @@ package taewookim;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.craftbukkit.v1_20_R2.CraftWorld;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.util.Vector;
@@ -87,12 +88,13 @@ public class ObjectBuilding {
         this.pitch = pitch%3600;
         this.roll = roll%3600;
         Location loc = new Location(w, x, y, z);
-        for(Map.Entry<Vector, Material> entry : building.blockdata.entrySet()) {
+        for(Map.Entry<Vector, BlockData> entry : building.blockdata.entrySet()) {
             net.minecraft.world.level.World nw = ((CraftWorld) w).getHandle();
             CustomBlockDisplay bd = new CustomBlockDisplay(nw, entry.getValue(), this, entry.getKey(), loc);
             nw.addFreshEntity(bd, CreatureSpawnEvent.SpawnReason.CUSTOM);
             displays.add(bd);
         }
+        Update();
     }
 
     public void Update() {
